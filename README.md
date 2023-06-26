@@ -46,4 +46,4 @@ Click to Download the video
 3. POST localhost:8000/api/v1/load-traffic-analysis-system  <---- Load traffic analysis model
 
 ## Demo
-![Demo Video](https://github.com/bwithai/traffic-analysis/blob/233b8ab4db7bdcb9fcf302308c290151e7757bab/result/traffic_out.mp4)
+![Demo Video](https://github.com/bwithai/traffic-analysis/raw/233b8ab4db7bdcb9fcf302308c290151e7757bab/result/traffic_out.mp4)
