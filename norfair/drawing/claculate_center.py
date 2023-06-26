@@ -104,7 +104,7 @@ def get_center_of_the_object(id, frame, points: Sequence[Tuple[int, int]]):
     """
     # Check if object enter the zone
     if 0 <= center_x <= 1130:
-        if 648 <= center_y <= 652:
+        if 647 <= center_y <= 653:
             # the blinking concept
             color = (0, 255, 0)  # BGR color tuple (red in this case)
             frame = cv2.line(frame, Lstart_l1, Lend_l1, color, thickness + 20)
