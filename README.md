@@ -2,9 +2,13 @@
 Using the latest advancement in AI, Computer Vision and Deep Learning. It is automated traffic monitoring platform and traffic analytics solution for any entity that requires general traffic information for any purpose. It is designed and developed with the notion to provide ease of use and effective traffic analysis.
 
 ## Table of Contents
+- [Demo](#demo)
 - [Installation and Run](#installation)
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
+
+## Demo
+![Demo Video](result/traffic_out.mp4)
 
 ## Installation and Run
 
