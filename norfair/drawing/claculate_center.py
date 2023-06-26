@@ -104,7 +104,7 @@ def get_center_of_the_object(id, frame, points: Sequence[Tuple[int, int]]):
     """
     # Check if object enter the zone
     if 0 <= center_x <= 1130:
-        if 649 <= center_y <= 651:
+        if 648 <= center_y <= 652:
             # the blinking concept
             color = (0, 255, 0)  # BGR color tuple (red in this case)
             frame = cv2.line(frame, Lstart_l1, Lend_l1, color, thickness + 20)
@@ -115,7 +115,7 @@ def get_center_of_the_object(id, frame, points: Sequence[Tuple[int, int]]):
 
     # Check if object exit the zone
     if 0 <= center_x <= 630:
-        if 169 <= center_y <= 171:
+        if 168 <= center_y <= 172:
             color = (0, 255, 0)  # BGR color tuple (red in this case)
             frame = cv2.line(frame, Lstart_l2, Lend_l2, color, thickness + 20)
             incremental_obj.update_left_out(id)
@@ -126,7 +126,7 @@ def get_center_of_the_object(id, frame, points: Sequence[Tuple[int, int]]):
         Right side Zone to count the object to pass the line
     """
     if 800 <= center_x <= 1260:
-        if 259 <= center_y <= 261:
+        if 258 <= center_y <= 262:
             color = (0, 255, 0)  # BGR color tuple (red in this case)
             frame = cv2.line(frame, Rstart_l1, Rend_l1, color, thickness + 20)
             incremental_obj.update_right_in(id)
@@ -134,7 +134,7 @@ def get_center_of_the_object(id, frame, points: Sequence[Tuple[int, int]]):
             frame = put_entry_text(frame, Rstart_l1, Rend_l1, str(total_entry_at_right_line))
 
     if 1000 <= center_x <= 19000:
-        if 499 <= center_y <= 501:
+        if 498 <= center_y <= 502:
             color = (0, 255, 0)  # BGR color tuple (red in this case)
             frame = cv2.line(frame, Rstart_l2, Rend_l2, color, thickness + 20)
             incremental_obj.update_right_out(id)
