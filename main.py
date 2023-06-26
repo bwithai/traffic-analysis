@@ -67,13 +67,13 @@ async def get_all_stored_file():
     }
 
 
-@app.post("/api/v1/detect/file-name")
+@app.post("/api/v1/load-traffic-analysis-system")
 async def load_traffic_analysis_system(metadata: DetectResponseModel):
     # detected_video_path = load_system(source=file_path, draw_paths=metadatadraw_paths,
     #                                   classes=metadataclasses, track_boxes=metadatatrack_boxes,
     #                                   save=metadatasave)
     detected_video_path= load_system(source="./demo/traffic.mp4", draw_paths=metadata.draw_paths, classes=[2, 3],
                 id_size=metadata.id_size, path_history=metadata.path_history, draw_objects=metadata.draw_objects,
-                track_boxes=metadata.track_boxes, save=metadata.save)
+                track_boxes=metadata.track_boxes, save=metadata.save, mask_detections=True)
 
     return FileResponse(detected_video_path, media_type="video/mp4", filename="traffic_out.mp4")
