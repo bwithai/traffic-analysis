@@ -1,0 +1,4 @@
+.idea
+__pycache__/
+ norfair/__pycache__/
+norfair/drawing/__pycache__/
