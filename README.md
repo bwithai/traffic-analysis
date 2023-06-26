@@ -33,9 +33,9 @@ Request body: localhost:8000/api/v1/load-traffic-analysis-system
   ]
 }
 ```
-if save is false it will show each frame at realtime, speed is depend on your system spec. If GPU 🤩
+If save is False it will show each frame at realtime, speed is depend on your system spec. If GPU 🤩
 
-Please be patient, Traffic analysis and counting may take a while, the response will look like this
+If save is True Please be patient, Traffic analysis and counting may take a while, the response will look like this
 
 ![Response of localhost:8000/api/v1/load-traffic-analysis-system](result/response.gif)
 Click to Download the video
