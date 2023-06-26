@@ -17,13 +17,32 @@ from yolo_helper import load_model_to_yolo, yolo_detections_to_sort
 def load_system(source, model='yolov5n', track_boxes=False, mask_detections=False,
                 classes=None, id_size=1, save=False, draw_flow=False,
                 draw_paths=False, path_history=30, draw_objects=False):
+    """
+        Loads the system for object tracking and analysis.
+
+        Args:
+            source (str): Path to the input video file.
+            model (str, optional): YOLO model to use for object detection. Defaults to 'yolov5n'.
+            track_boxes (bool, optional): Whether to track the bounding boxes of the detected objects. Defaults to False.
+            mask_detections (bool, optional): Whether to mask the detected objects. Defaults to False.
+            classes (list, optional): List of classes to detect. Defaults to None.
+            id_size (int, optional): Size of the object ID to display. Defaults to 1.
+            save (bool, optional): Whether to save the output video. Defaults to False.
+            draw_flow (bool, optional): Whether to draw optical flow arrows. Defaults to False.
+            draw_paths (bool, optional): Whether to draw paths of tracked objects. Defaults to False.
+            path_history (int, optional): Number of frames to keep in the path history. Defaults to 30.
+            draw_objects (bool, optional): Whether to draw tracked objects. Defaults to False.
+
+        Returns:
+            str: Output path of the processed video file.
+        """
     tracked_objects = []
     transformations_getter = HomographyTransformationGetter()
 
     model = load_model_to_yolo(weight=model, classes=classes)
 
     if transformations_getter is not None:
-        # flow
+        # Optical flow
         motion_estimator = MotionEstimator(
             max_points=900,
             min_distance=14,
@@ -44,7 +63,7 @@ def load_system(source, model='yolov5n', track_boxes=False, mask_detections=Fals
         else partial(video.show, downsample_ratio=1)
     )
 
-    # sort
+    # SORT tracker
     tracker = Tracker(
         distance_function="euclidean",
         detection_threshold=0.15,
