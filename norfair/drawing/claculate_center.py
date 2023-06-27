@@ -47,8 +47,8 @@ def get_center_of_the_object(id, frame, points: Sequence[Tuple[int, int]]):
         Define the start/end zone for the Right line
     """
     # Start
-    Rstart_l1 = (800, 260)  # (x, y) coordinates of the start point
-    Rend_l1 = (1260, 260)  # (x, y) coordinates of the end point
+    Rstart_l1 = (920, 410)  # (x, y) coordinates of the start point
+    Rend_l1 = (1540, 410)  # (x, y) coordinates of the end point
 
     # End
     Rstart_l2 = (1000, 500)  # (x, y) coordinates of the start point
@@ -125,8 +125,8 @@ def get_center_of_the_object(id, frame, points: Sequence[Tuple[int, int]]):
     """
         Right side Zone to count the object to pass the line
     """
-    if 800 <= center_x <= 1260:
-        if 258 <= center_y <= 262:
+    if 920 <= center_x <= 1540:
+        if 408 <= center_y <= 412:
             color = (0, 255, 0)  # BGR color tuple (red in this case)
             frame = cv2.line(frame, Rstart_l1, Rend_l1, color, thickness + 20)
             incremental_obj.update_right_in(id)
