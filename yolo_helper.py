@@ -54,7 +54,6 @@ def yolo_detections_to_sort(yolo_detections, track_boxes):
         """
     norfair_detections = []
     boxes = []
-    center_coordinates = []  # List to store the center coordinates
 
     detections_as_xyxy = yolo_detections.xyxy[0]
     for detection_as_xyxy in detections_as_xyxy:
@@ -71,8 +70,6 @@ def yolo_detections_to_sort(yolo_detections, track_boxes):
         center_x = (bbox[0][0] + bbox[1][0]) / 2
         center_y = (bbox[0][1] + bbox[1][1]) / 2
 
-        center_coordinates.append([center_x, center_y])  # Store the center coordinates
-
         if track_boxes:
             points = bbox
             scores = np.array([detection_as_xyxy[4], detection_as_xyxy[4]])
@@ -84,4 +81,4 @@ def yolo_detections_to_sort(yolo_detections, track_boxes):
             Detection(points=points, scores=scores, label=detection_as_xyxy[-1].item())
         )
 
-    return norfair_detections, boxes, center_coordinates
+    return norfair_detections, boxes
