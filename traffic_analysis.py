@@ -67,7 +67,7 @@ def load_system(source, model='yolov5n', track_boxes=False, mask_detections=Fals
     tracker = Tracker(
         distance_function="euclidean",
         detection_threshold=0.15,
-        distance_threshold=300,
+        distance_threshold=100,
         initialization_delay=3,
         hit_counter_max=6,
     )
@@ -79,8 +79,8 @@ def load_system(source, model='yolov5n', track_boxes=False, mask_detections=Fals
         # frame = apply_labels(detections, frame)
 
         # Change the detections to SORT detections
-        detections, boxes, center_coordinates = yolo_detections_to_sort(
-            detections, track_boxes,
+        detections, boxes = yolo_detections_to_sort(
+            detections, track_boxes
         )
 
         mask = None
@@ -123,3 +123,7 @@ def load_system(source, model='yolov5n', track_boxes=False, mask_detections=Fals
 
         show_or_write(frame)
     return video.get_output_file_path()
+
+# load_system("./demo/traffic.mp4", track_boxes=True, mask_detections=True,
+#                 classes=[2, 3], id_size=1, save=True, draw_flow=False,
+#                 draw_paths=True, path_history=50, draw_objects=True)
